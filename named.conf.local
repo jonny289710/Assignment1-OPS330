@@ -1,0 +1,13 @@
+include "/etc/bind/tsig.keys";
+
+zone "assign.jzamor-villela.300.ops" {
+    type slave;
+    masters { 192.168.123.201 key "pri-to-sec"; };
+    file "/var/cache/bind/db.assign.jzamor-villela.300.ops";
+};
+
+zone "123.168.192.in-addr.arpa" {
+    type slave;
+    masters { 192.168.123.201 key "pri-to-sec"; };
+    file "/var/cache/bind/db.192.168.123";
+};
