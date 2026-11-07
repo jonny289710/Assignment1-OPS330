@@ -2,8 +2,19 @@ options {
     directory "/var/cache/bind";
 
     recursion yes;
+
     allow-query { any; };
-    allow-recursion { 192.168.123.0/24; };
+
+    allow-recursion {
+        localhost;
+        192.168.123.0/24;
+    };
+
+    allow-query-cache {
+        localhost;
+        192.168.123.0/24;
+    };
+
     allow-transfer { none; };
 
     forward only;
